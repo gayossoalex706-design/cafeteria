@@ -1,0 +1,32 @@
+$def with ()
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cancelar pedido</title>
+</head>
+
+<body>
+
+<h1>Cancelar pedido</h1>
+
+<form action="/cancelar" method="POST">
+
+    <p>
+        Escribe el número del pedido que deseas cancelar:
+    </p>
+
+    <input type="text" name="numero" placeholder="Número de pedido" required>
+
+    <button type="submit">Cancelar pedido</button>
+
+</form>
+
+<br>
+
+<a href="/">Volver al inicio</a>
+
+</body>
+</html>

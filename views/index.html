@@ -1,0 +1,89 @@
+$def with (fila_normal, fila_prioritaria, total, preparados)
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafetería UTEC</title>
+</head>
+<body>
+
+<h1>Sistema de Pedidos - Cafetería UTEC</h1>
+
+<h2>Pedidos prioritarios</h2>
+
+<table border="1">
+    <tr>
+        <th>Número</th>
+        <th>Cliente</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Prioridad</th>
+        <th>Tiempo (minutos)</th>
+        <th>Cancelar</th>
+    </tr>
+
+$for pedido in fila_prioritaria:
+    <tr>
+        <td>$pedido["numero"]</td>
+        <td>$pedido["cliente"]</td>
+        <td>$pedido["producto"]</td>
+        <td>$pedido["cantidad"]</td>
+        <td>$pedido["prioridad"]</td>
+        <td>$pedido["tiempo"]</td>
+        <td>
+            <form action="/cancelar" method="POST">
+                <input type="hidden" name="numero" value="$pedido['numero']">
+                <button type="submit">Cancelar</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<h2>Pedidos normales</h2>
+
+<table border="1">
+    <tr>
+        <th>Número</th>
+        <th>Cliente</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Prioridad</th>
+        <th>Tiempo (minutos)</th>
+        <th>Cancelar</th>
+    </tr>
+
+$for pedido in fila_normal:
+    <tr>
+        <td>$pedido["numero"]</td>
+        <td>$pedido["cliente"]</td>
+        <td>$pedido["producto"]</td>
+        <td>$pedido["cantidad"]</td>
+        <td>$pedido["prioridad"]</td>
+        <td>$pedido["tiempo"]</td>
+        <td>
+            <form action="/cancelar" method="POST">
+                <input type="hidden" name="numero" value="$pedido['numero']">
+                <button type="submit">Cancelar</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<a href="/registrar">Registrar pedido</a>
+
+<br><br>
+
+<a href="/preparar">Consultar y preparar siguiente pedido</a>
+
+<h2>Estadísticas</h2>
+
+<p>Pedidos normales pendientes: $len(fila_normal)</p>
+<p>Pedidos prioritarios pendientes: $len(fila_prioritaria)</p>
+<p>Total de pedidos pendientes: $total</p>
+<p>Pedidos preparados: $preparados</p>
+
+</body>
+</html>

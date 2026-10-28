@@ -1,0 +1,35 @@
+$def with (siguiente)
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Preparar pedido</title>
+</head>
+<body>
+
+<h1>Preparar siguiente pedido</h1>
+
+$if siguiente is not None:
+
+    <p>Número: $siguiente["numero"]</p>
+    <p>Cliente: $siguiente["cliente"]</p>
+    <p>Producto: $siguiente["producto"]</p>
+    <p>Cantidad: $siguiente["cantidad"]</p>
+    <p>Prioridad: $siguiente["prioridad"]</p>
+    <p>Tiempo estimado: $siguiente["tiempo"] minutos</p>
+
+    <form action="/preparar" method="POST">
+        <button type="submit">Marcar como preparado</button>
+    </form>
+
+$else:
+
+    <p>No hay pedidos pendientes.</p>
+
+<br>
+
+<a href="/">Volver al inicio</a>
+
+</body>
+</html>

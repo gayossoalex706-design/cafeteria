@@ -1,0 +1,57 @@
+$def with ()
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar pedido</title>
+</head>
+<body>
+
+<h1>Registrar pedido</h1>
+
+<form action="/registrar" method="POST">
+
+    <p>
+        Número de pedido:
+        <input type="text" name="numero" required>
+    </p>
+
+    <p>
+        Nombre del cliente:
+        <input type="text" name="cliente" required>
+    </p>
+
+    <p>
+        Producto:
+        <input type="text" name="producto" required>
+    </p>
+
+    <p>
+        Cantidad:
+        <input type="number" name="cantidad" min="1" required>
+    </p>
+
+    <p>
+        Prioridad:
+        <select name="prioridad">
+            <option value="Normal">Normal</option>
+            <option value="Prioritario">Prioritario</option>
+        </select>
+    </p>
+
+    <p>
+        Tiempo de preparación en minutos:
+        <input type="number" name="tiempo" min="1" required>
+    </p>
+
+    <button type="submit">Registrar pedido</button>
+
+</form>
+
+<br>
+
+<a href="/">Volver al inicio</a>
+
+</body>
+</html>
