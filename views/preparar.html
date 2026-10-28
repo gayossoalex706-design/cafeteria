@@ -2,16 +2,18 @@ $def with (siguiente)
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/estilo.css">
     <title>Preparar pedido</title>
 </head>
+
 <body>
 
 <h1>Preparar siguiente pedido</h1>
 
 $if siguiente is not None:
-
     <p>Número: $siguiente["numero"]</p>
     <p>Cliente: $siguiente["cliente"]</p>
     <p>Producto: $siguiente["producto"]</p>
@@ -24,7 +26,6 @@ $if siguiente is not None:
     </form>
 
 $else:
-
     <p>No hay pedidos pendientes.</p>
 
 <br>

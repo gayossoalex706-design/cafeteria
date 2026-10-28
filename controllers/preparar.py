@@ -12,8 +12,10 @@ class Preparar:
 
         if len(fila_prioritaria) > 0:
             siguiente = fila_prioritaria[0]
+
         elif len(fila_normal) > 0:
             siguiente = fila_normal[0]
+
         else:
             siguiente = None
 
@@ -29,4 +31,13 @@ class Preparar:
             fila_normal.pop(0)
             index.preparados += 1
 
-        raise web.seeother("/preparar")
+        if len(fila_prioritaria) > 0:
+            siguiente = fila_prioritaria[0]
+
+        elif len(fila_normal) > 0:
+            siguiente = fila_normal[0]
+
+        else:
+            siguiente = None
+
+        return render.preparar(siguiente)
